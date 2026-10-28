@@ -28,7 +28,7 @@ export const CLOTHES = [
   { id: 'brooch-peruvian', title: 'Brooch', date: '20th century', culture: 'Peruvian', group: 'Peruvian', region: 'Americas', year: 1900, medium: 'silver', slot: 'pin', url: met(107389) },
   { id: 'pectoral-panamanian', title: 'Pectoral', date: '11th–16th century', culture: 'Indigenous American (Panamanian)', group: 'Indigenous Panamanian', region: 'Americas', year: 1350, medium: 'gold, synthetic', slot: 'neck', url: met(141754) },
   { id: 'necklace-costa-rican', title: 'Necklace', date: '500 BCE–900 CE', culture: 'Indigenous American (Costa Rican)', group: 'Indigenous Costa Rican', region: 'Americas', year: 200, medium: 'jade', slot: 'neck', url: met(141757) },
-  { id: 'coat-british', title: 'Coat', date: '1630–40', culture: 'British', group: 'British', region: 'Europe', year: 1635, medium: 'leather', slot: 'outer', url: met(81556) },
+  { id: 'coat-british', title: 'Coat', date: '1630–40', culture: 'British', group: 'British', region: 'Europe', year: 1635, medium: 'leather', slot: 'outer', fit: { top: 20, h: 46 }, url: met(81556) },
   { id: 'trousers-american', title: 'Trousers', date: '1800–1830', culture: 'American', group: 'American', region: 'Americas', year: 1815, medium: 'cotton, linen', slot: 'bottom', url: met(911443) },
   { id: 'hakama-japanese', title: 'Trousers ("hakama") associated with Kyogen', date: 'late 19th century', culture: 'Japan', group: 'Japanese', region: 'Asia', year: 1875, medium: 'hemp', slot: 'bottom', url: met(44633) },
   { id: 'headdress-russian', title: 'Headdress', date: 'early 19th century', culture: 'Russian', group: 'Russian', region: 'Europe', year: 1810, medium: 'silk, pearls, metal, cotton, paper', slot: 'head', fit: { top: -25, h: 31 }, url: met(155785) },
