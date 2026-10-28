@@ -21,7 +21,7 @@ export const CLOTHES = [
   { id: 'doublet-french', title: 'Doublet', date: 'early 1620s', culture: 'French', group: 'French', region: 'Europe', year: 1620, medium: 'silk', slot: 'top', url: met(81558) },
   { id: 'bashlik', title: 'Bashlik', date: '1860s', culture: 'Asian, North', group: 'North Asian', region: 'Asia', year: 1865, medium: 'wool', slot: 'outer', url: met(107581) },
   { id: 'fan-brazilian', title: 'Fixed fan', date: '1865–75', culture: 'Brazilian', group: 'Brazilian', region: 'Americas', year: 1870, medium: 'ivory, feathers, beetles', slot: 'hand', url: met(157985) },
-  { id: 'blouse-indian', title: 'Blouse', date: 'late 19th century', culture: 'Indian', group: 'Indian', region: 'Asia', year: 1875, medium: 'cotton, silk', slot: 'top', fit: { top: 22, h: 32 }, url: met(157713) },
+  { id: 'blouse-indian', title: 'Blouse', date: 'late 19th century', culture: 'Indian', group: 'Indian', region: 'Asia', year: 1875, medium: 'cotton, silk', slot: 'top', fit: { top: 24, h: 26 }, url: met(157713) },
   { id: 'shawl-moroccan', title: 'Shawl', date: 'ca. 1866', culture: 'possibly Moroccan', group: 'Moroccan', region: 'Africa', year: 1866, medium: 'wool, metallic', slot: 'shoulders', fit: { top: 20, h: 42 }, url: met(168800) },
   { id: 'skirt-british', title: 'Skirt', date: 'late 18th century', culture: 'British', group: 'British', region: 'Europe', year: 1775, medium: 'linen', slot: 'bottom', url: met(155201) },
   { id: 'hat-american', title: 'Hat', date: '1872', culture: 'American', group: 'American', region: 'Americas', year: 1872, medium: 'straw, silk, metal', slot: 'head', fit: { top: -4, h: 20 }, url: met(156553) },
