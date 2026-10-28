@@ -132,7 +132,6 @@ export default function App() {
                   <img src={c.img} alt={c.title} draggable="false" loading="lazy" />
                 </button>
                 <span className="name">{c.title}</span>
-                <span className="meta">{c.culture} · {c.date}</span>
               </li>
             ))}
           </ul>
