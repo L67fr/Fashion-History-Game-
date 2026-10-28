@@ -68,3 +68,16 @@ main { display: grid; grid-template-columns: minmax(280px, 420px) 1fr; gap: 20px
 .ghost { position: fixed; height: 140px; transform: translate(-50%, -50%); pointer-events: none; z-index: 1000; opacity: .9; filter: drop-shadow(0 6px 10px rgba(0,0,0,.3)); }
 
 footer { margin-top: 24px; font-size: .8rem; color: var(--muted); }
+
+.stage-actions button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.info h3 { margin: 14px 0 6px; font-size: 1rem; color: var(--muted); font-weight: normal; text-transform: uppercase; letter-spacing: .05em; }
+.mix { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.mix li { display: grid; grid-template-columns: 9rem 1fr 3rem; align-items: center; gap: 8px; font-size: .9rem; }
+.mix .bar { height: 10px; background: var(--line); border-radius: 999px; overflow: hidden; }
+.mix .fill { display: block; height: 100%; background: var(--accent); }
+.mix-pct { text-align: right; color: var(--muted); }
+.timeline { margin: 0; padding-left: 0; list-style: none; display: grid; gap: 8px; }
+.timeline li { display: grid; grid-template-columns: 9rem 1fr; gap: 8px; font-size: .9rem; }
+.timeline .when { color: var(--muted); }
+.timeline a { color: var(--accent); }
+@media (max-width: 480px) { .mix li, .timeline li { grid-template-columns: 1fr; } }

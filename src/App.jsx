@@ -8,13 +8,14 @@ export default function App() {
   // outfit maps slot -> clothing id
   const [outfit, setOutfit] = useState({})
   const [filter, setFilter] = useState('all')
-  const [info, setInfo] = useState(null)
+  const [done, setDone] = useState(false) // outfit is complete: form locked, results shown
   const [drag, setDrag] = useState(null) // { id, from: 'closet' | 'form', x, y, moved }
   const stageRef = useRef(null)
 
   const worn = new Set(Object.values(outfit))
 
   function wear(id) {
+    if (done) return
     const { slot } = BYID[id]
     setOutfit((o) => {
       const next = { ...o }
@@ -22,10 +23,10 @@ export default function App() {
       next[slot] = id
       return next
     })
-    setInfo(BYID[id])
   }
 
   function takeOff(id) {
+    if (done) return
     setOutfit((o) => {
       const next = { ...o }
       delete next[BYID[id].slot]
@@ -34,6 +35,7 @@ export default function App() {
   }
 
   function startDrag(e, id, from) {
+    if (done) return
     e.preventDefault()
     const start = { x: e.clientX, y: e.clientY }
     let state = { id, from, x: e.clientX, y: e.clientY, moved: false }
@@ -63,14 +65,26 @@ export default function App() {
     window.addEventListener('pointerup', up)
   }
 
+  function undress() {
+    setOutfit({})
+    setDone(false)
+  }
+
+  // results: share of each culture label among the worn pieces, and the pieces by date
+  const pieces = Object.values(outfit).map((id) => BYID[id])
+  const cultureMix = Object.entries(
+    pieces.reduce((acc, c) => ({ ...acc, [c.group]: (acc[c.group] || 0) + 1 }), {})
+  ).sort((a, b) => b[1] - a[1])
+  const timeline = [...pieces].sort((a, b) => a.year - b.year)
+
   const shown = CLOTHES.filter((c) => filter === 'all' || c.slot === filter)
-  const dragging = drag?.moved ? BYID[drag.id] : null
+  const dragging = drag?.moved && !done ? BYID[drag.id] : null
 
   return (
     <div className="app">
       <header>
         <h1>Historical Fashion Game</h1>
-        <p>Drag clothing onto the form to create different outfits from pieces in the MET Costume Collection.</p>
+        <p>Drag clothing onto the form to create an outfit from pieces in the MET Costume Collection. Press Complete when you're finished.</p>
       </header>
 
       <main>
@@ -88,32 +102,57 @@ export default function App() {
                   src={c.img}
                   alt={c.title}
                   draggable="false"
-                  title={`${c.title}, ${c.date}`}
-                  style={{ left: `${s.cx}%`, top: `${s.top}%`, height: `${s.h}%`, zIndex: s.z, opacity: hidden ? 0.25 : 1 }}
+                  title={c.title}
+                  style={{ left: `${s.cx}%`, top: `${s.top}%`, height: `${s.h}%`, zIndex: s.z, opacity: hidden ? 0.25 : 1, cursor: done ? 'default' : 'grab' }}
                   onPointerDown={(e) => startDrag(e, id, 'form')}
                 />
               )
             })}
-            {drag?.moved && <div className="drop-hint">Drop to dress the form</div>}
+            {drag?.moved && !done && <div className="drop-hint">Drop to dress the form</div>}
           </div>
           <div className="stage-actions">
-            <button onClick={() => { setOutfit({}); setInfo(null) }} disabled={!worn.size}>Undress</button>
+            <button onClick={undress} disabled={!worn.size}>Undress</button>
+            {done ? (
+              <button onClick={() => setDone(false)}>Edit outfit</button>
+            ) : (
+              <button className="primary" onClick={() => setDone(true)} disabled={!worn.size}>Complete</button>
+            )}
             <span>{worn.size} piece{worn.size === 1 ? '' : 's'} worn</span>
           </div>
 
           <div className="info">
-            {info ? (
-              <>
-                <h2>{info.title}</h2>
-                <dl>
-                  <dt>Date</dt><dd>{info.date}</dd>
-                  <dt>Culture</dt><dd>{info.culture}</dd>
-                  <dt>Medium</dt><dd>{info.medium}</dd>
-                </dl>
-                <a href={info.url} target="_blank" rel="noreferrer">View at The Met →</a>
-              </>
+            {!done ? (
+              <p className="muted">Press Complete to see the cultures in your outfit and when each piece was made.</p>
             ) : (
-              <p className="muted">Click any piece to learn about it. Drag a piece off the form to take it off.</p>
+              <>
+                <h2>Your outfit</h2>
+                <h3>Culture mix</h3>
+                <ul className="mix">
+                  {cultureMix.map(([name, count]) => {
+                    const pct = Math.round((count / pieces.length) * 100)
+                    return (
+                      <li key={name}>
+                        <span className="mix-label">{name}</span>
+                        <span className="bar"><span className="fill" style={{ width: `${pct}%` }} /></span>
+                        <span className="mix-pct">{pct}%</span>
+                      </li>
+                    )
+                  })}
+                </ul>
+                <h3>Timeline</h3>
+                <ol className="timeline">
+                  {timeline.map((c) => (
+                    <li key={c.id}>
+                      <span className="when">{c.date}</span>
+                      <span className="what">
+                        <strong>{c.title}</strong>, {c.culture}
+                        {' · '}
+                        <a href={c.url} target="_blank" rel="noreferrer">View at The Met →</a>
+                      </span>
+                    </li>
+                  ))}
+                </ol>
+              </>
             )}
           </div>
         </section>
@@ -128,7 +167,7 @@ export default function App() {
           <ul className="grid">
             {shown.map((c) => (
               <li key={c.id} className={worn.has(c.id) ? 'worn-tile' : ''}>
-                <button onPointerDown={(e) => startDrag(e, c.id, 'closet')} title="Drag onto the form, or click to wear">
+                <button onPointerDown={(e) => startDrag(e, c.id, 'closet')} title="Drag onto the form, or click to wear" disabled={done}>
                   <img src={c.img} alt={c.title} draggable="false" loading="lazy" />
                 </button>
                 <span className="name">{c.title}</span>
