@@ -19,7 +19,7 @@ export const SLOTS = {
 export const CLOTHES = [
   { id: 'ensemble-french', title: 'Ensemble', date: 'ca. 1730', culture: 'probably French', group: 'French', region: 'Europe', year: 1730, medium: 'wool; silk; metallic thread', slot: 'outer', fit: { top: 11, h: 80 }, url: 'https://www.metmuseum.org/art/collection/search?q=2004.411a' },
   { id: 'doublet-french', title: 'Doublet', date: 'early 1620s', culture: 'French', group: 'French', region: 'Europe', year: 1620, medium: 'silk', slot: 'top', url: met(81558) },
-  { id: 'bashlik', title: 'Bashlik', date: '1860s', culture: 'Asian, North', group: 'North Asian', region: 'Asia', year: 1865, medium: 'wool', slot: 'outer', fit: { top: 16, h: 68 }, url: met(107581) },
+  { id: 'bashlik', title: 'Bashlik', date: '1860s', culture: 'Asian, North', group: 'North Asian', region: 'Asia', year: 1865, medium: 'wool', slot: 'outer', fit: { top: 12, h: 68 }, url: met(107581) },
   { id: 'fan-brazilian', title: 'Fixed fan', date: '1865–75', culture: 'Brazilian', group: 'Brazilian', region: 'Americas', year: 1870, medium: 'ivory, feathers, beetles', slot: 'hand', url: met(157985) },
   { id: 'blouse-indian', title: 'Blouse', date: 'late 19th century', culture: 'Indian', group: 'Indian', region: 'Asia', year: 1875, medium: 'cotton, silk', slot: 'top', fit: { top: 24, h: 26 }, url: met(157713) },
   { id: 'shawl-moroccan', title: 'Shawl', date: 'ca. 1866', culture: 'possibly Moroccan', group: 'Moroccan', region: 'Africa', year: 1866, medium: 'wool, metallic', slot: 'shoulders', fit: { top: 20, h: 42 }, url: met(168800) },
