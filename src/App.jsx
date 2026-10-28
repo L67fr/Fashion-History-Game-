@@ -90,8 +90,9 @@ export default function App() {
       <main>
         <section className="stage-wrap">
           <div className="stage" ref={stageRef}>
-            <img className="form" src={`${import.meta.env.BASE_URL}form.png`} alt="Dress form" draggable="false" />
-            {Object.entries(outfit).map(([slot, id]) => {
+            <div className="figure">
+              <img className="form" src={`${import.meta.env.BASE_URL}form.png`} alt="Dress form" draggable="false" />
+              {Object.entries(outfit).map(([slot, id]) => {
               const c = BYID[id]
               const s = { ...SLOTS[slot], ...c.fit }
               const hidden = drag?.moved && drag.id === id
@@ -107,7 +108,8 @@ export default function App() {
                   onPointerDown={(e) => startDrag(e, id, 'form')}
                 />
               )
-            })}
+              })}
+            </div>
             {drag?.moved && !done && <div className="drop-hint">Drop to dress the form</div>}
           </div>
           <div className="stage-actions">
