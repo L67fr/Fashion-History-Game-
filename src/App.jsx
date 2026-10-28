@@ -49,9 +49,9 @@ export default function App() {
       window.removeEventListener('pointerup', up)
       setDrag(null)
       if (!state.moved) {
-        // a click: closet items go on, worn items show their info
-        if (from === 'closet') wear(id)
-        else setInfo(BYID[id])
+        // a click: a worn piece comes off, otherwise a closet piece goes on
+        if (from === 'form' || worn.has(id)) takeOff(id)
+        else wear(id)
         return
       }
       const r = stageRef.current.getBoundingClientRect()
