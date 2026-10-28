@@ -78,8 +78,8 @@ export default function App() {
           <div className="stage" ref={stageRef}>
             <img className="form" src={`${import.meta.env.BASE_URL}form.png`} alt="Dress form" draggable="false" />
             {Object.entries(outfit).map(([slot, id]) => {
-              const s = SLOTS[slot]
               const c = BYID[id]
+              const s = { ...SLOTS[slot], ...c.fit }
               const hidden = drag?.moved && drag.id === id
               return (
                 <img

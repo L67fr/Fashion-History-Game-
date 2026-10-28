@@ -38,10 +38,10 @@ export const CLOTHES = [
   { id: 'bodice-european', title: 'Bodice', date: '18th century', culture: 'European', medium: 'silk, metal thread', slot: 'top', url: met(90397) },
   { id: 'bertha-belgian', title: 'Bertha', date: 'ca. 1890', culture: 'Belgian', medium: 'linen', slot: 'shoulders', url: met(156799) },
   { id: 'frock-coat-philippine', title: 'Frock coat', date: '1840–49', culture: 'Philippine', medium: 'cotton, piña', slot: 'outer', url: met(158133) },
-  { id: 'smock-italian', title: 'Smock', date: 'late 16th century', culture: 'Italian', medium: 'linen, silk and metal thread', slot: 'top', url: met(83861) },
-  { id: 'skirt-french', title: 'Skirt', date: '1840–60', culture: 'French', medium: 'cotton', slot: 'bottom', url: met(156833) },
-  { id: 'jacket-german', title: 'Jacket', date: '1898–1900', culture: 'German', medium: 'wool, brass, metal', slot: 'top', url: met(104950) },
-  { id: 'dress-irish', title: 'Dress', date: 'ca. 1875', culture: 'Irish', medium: 'silk', slot: 'dress', url: met(174693) },
+  { id: 'smock-italian', title: 'Smock', date: 'late 16th century', culture: 'Italian', medium: 'linen, silk and metal thread', slot: 'dress', fit: { top: 18, h: 80 }, url: met(83861) },
+  { id: 'skirt-french', title: 'Skirt', date: '1840–60', culture: 'French', medium: 'cotton', slot: 'bottom', fit: { top: 46, h: 52 }, url: met(156833) },
+  { id: 'jacket-german', title: 'Jacket', date: '1898–1900', culture: 'German', medium: 'wool, brass, metal', slot: 'outer', fit: { top: 18, h: 50 }, url: met(104950) },
+  { id: 'dress-irish', title: 'Dress', date: 'ca. 1875', culture: 'Irish', medium: 'silk', slot: 'dress', fit: { top: 18, h: 80 }, url: met(174693) },
 ].map((c) => ({ ...c, img: `${import.meta.env.BASE_URL}clothes/${c.id}.png` }))
 
 // A dress covers both top and bottom, so they can't be worn together
