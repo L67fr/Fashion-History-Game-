@@ -24,7 +24,7 @@ export const CLOTHES = [
   { id: 'blouse-indian', title: 'Blouse', date: 'late 19th century', culture: 'Indian', group: 'Indian', region: 'Asia', year: 1875, medium: 'cotton, silk', slot: 'top', url: met(157713) },
   { id: 'shawl-moroccan', title: 'Shawl', date: 'ca. 1866', culture: 'possibly Moroccan', group: 'Moroccan', region: 'Africa', year: 1866, medium: 'wool, metallic', slot: 'shoulders', fit: { top: 20, h: 42 }, url: met(168800) },
   { id: 'skirt-british', title: 'Skirt', date: 'late 18th century', culture: 'British', group: 'British', region: 'Europe', year: 1775, medium: 'linen', slot: 'bottom', url: met(155201) },
-  { id: 'hat-american', title: 'Hat', date: '1872', culture: 'American', group: 'American', region: 'Americas', year: 1872, medium: 'straw, silk, metal', slot: 'head', fit: { top: -10, h: 20 }, url: met(156553) },
+  { id: 'hat-american', title: 'Hat', date: '1872', culture: 'American', group: 'American', region: 'Americas', year: 1872, medium: 'straw, silk, metal', slot: 'head', fit: { top: -4, h: 20 }, url: met(156553) },
   { id: 'brooch-peruvian', title: 'Brooch', date: '20th century', culture: 'Peruvian', group: 'Peruvian', region: 'Americas', year: 1900, medium: 'silver', slot: 'pin', url: met(107389) },
   { id: 'pectoral-panamanian', title: 'Pectoral', date: '11th–16th century', culture: 'Indigenous American (Panamanian)', group: 'Indigenous Panamanian', region: 'Americas', year: 1350, medium: 'gold, synthetic', slot: 'neck', url: met(141754) },
   { id: 'necklace-costa-rican', title: 'Necklace', date: '500 BCE–900 CE', culture: 'Indigenous American (Costa Rican)', group: 'Indigenous Costa Rican', region: 'Americas', year: 200, medium: 'jade', slot: 'neck', url: met(141757) },
