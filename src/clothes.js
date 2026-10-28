@@ -13,7 +13,7 @@ export const SLOTS = {
   neck:      { label: 'Necklaces',           cx: 50, top: 21, h: 22, z: 6 },
   pin:       { label: 'Brooches',            cx: 57, top: 25, h: 13, z: 7 },
   head:      { label: 'Hats & headwear',     cx: 50, top: 0,  h: 19, z: 8 },
-  hand:      { label: 'Fans & purses',       cx: 80, top: 42, h: 25, z: 9 },
+  hand:      { label: 'Fans & purses',       cx: 68, top: 47, h: 16, z: 9 },
 }
 
 export const CLOTHES = [
