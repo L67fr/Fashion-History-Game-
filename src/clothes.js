@@ -35,7 +35,7 @@ export const CLOTHES = [
   { id: 'cap-polish', title: 'Cap', date: '1870–80', culture: 'Polish', group: 'Polish', region: 'Europe', year: 1875, medium: 'silk, metallic thread', slot: 'head', fit: { top: -10, h: 16 }, url: met(84580) },
   { id: 'purse-mexican', title: 'Coin purse', date: '1790–1810', culture: 'Mexican', group: 'Mexican', region: 'Americas', year: 1800, medium: 'glass, silk, metal', slot: 'hand', url: met(156682) },
   { id: 'ensemble-spanish', title: 'Ensemble', date: 'late 16th century', culture: 'Spanish', group: 'Spanish', region: 'Europe', year: 1575, medium: 'silk, linen', slot: 'dress', url: met(98291) },
-  { id: 'bodice-european', title: 'Bodice', date: '18th century', culture: 'European', group: 'European', region: 'Europe', year: 1750, medium: 'silk, metal thread', slot: 'top', url: met(90397) },
+  { id: 'bodice-european', title: 'Bodice', date: '18th century', culture: 'European', group: 'European', region: 'Europe', year: 1750, medium: 'silk, metal thread', slot: 'top', fit: { top: 24, h: 38 }, url: met(90397) },
   { id: 'bertha-belgian', title: 'Bertha', date: 'ca. 1890', culture: 'Belgian', group: 'Belgian', region: 'Europe', year: 1890, medium: 'linen', slot: 'shoulders', url: met(156799) },
   { id: 'frock-coat-philippine', title: 'Frock coat', date: '1840–49', culture: 'Philippine', group: 'Philippine', region: 'Asia', year: 1845, medium: 'cotton, piña', slot: 'outer', fit: { top: 21, h: 40 }, url: met(158133) },
   { id: 'smock-italian', title: 'Smock', date: 'late 16th century', culture: 'Italian', group: 'Italian', region: 'Europe', year: 1575, medium: 'linen, silk and metal thread', slot: 'dress', fit: { top: 24, h: 50, cx: 52.5 }, url: met(83861) },
