@@ -33,7 +33,7 @@ export const CLOTHES = [
   { id: 'hakama-japanese', title: 'Trousers ("hakama") associated with Kyogen', date: 'late 19th century', culture: 'Japan', group: 'Japanese', region: 'Asia', year: 1875, medium: 'hemp', slot: 'bottom', fit: { top: 44, h: 68 }, url: met(44633) },
   { id: 'headdress-russian', title: 'Headdress', date: 'early 19th century', culture: 'Russian', group: 'Russian', region: 'Europe', year: 1810, medium: 'silk, pearls, metal, cotton, paper', slot: 'head', fit: { top: -28, h: 40 }, url: met(155785) },
   { id: 'cap-polish', title: 'Cap', date: '1870–80', culture: 'Polish', group: 'Polish', region: 'Europe', year: 1875, medium: 'silk, metallic thread', slot: 'head', fit: { top: -4, h: 12 }, url: met(84580) },
-  { id: 'purse-mexican', title: 'Coin purse', date: '1790–1810', culture: 'Mexican', group: 'Mexican', region: 'Americas', year: 1800, medium: 'glass, silk, metal', slot: 'hand', url: met(156682) },
+  { id: 'purse-mexican', title: 'Coin purse', date: '1790–1810', culture: 'Mexican', group: 'Mexican', region: 'Americas', year: 1800, medium: 'glass, silk, metal', slot: 'hand', fit: { top: 48, h: 15 }, url: met(156682) },
   { id: 'ensemble-spanish', title: 'Ensemble', date: 'late 16th century', culture: 'Spanish', group: 'Spanish', region: 'Europe', year: 1575, medium: 'silk, linen', slot: 'dress', url: met(98291) },
   { id: 'bodice-european', title: 'Bodice', date: '18th century', culture: 'European', group: 'European', region: 'Europe', year: 1750, medium: 'silk, metal thread', slot: 'top', fit: { top: 24, h: 38 }, url: met(90397) },
   { id: 'bertha-belgian', title: 'Bertha', date: 'ca. 1890', culture: 'Belgian', group: 'Belgian', region: 'Europe', year: 1890, medium: 'linen', slot: 'shoulders', url: met(156799) },
