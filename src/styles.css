@@ -83,3 +83,8 @@ footer { margin-top: 24px; font-size: .8rem; color: var(--muted); }
 .timeline .when { color: var(--muted); }
 .timeline a { color: var(--accent); }
 @media (max-width: 480px) { .mix li, .timeline li { grid-template-columns: 1fr; } }
+
+.world { width: 100%; height: auto; display: block; margin: 0 0 12px; border-radius: 8px; }
+.world .sea { fill: #dceef8; }
+.world .land { fill: #e4dbd0; stroke: #fffdf9; stroke-width: .3; }
+.world .land.hit { fill: var(--accent); }

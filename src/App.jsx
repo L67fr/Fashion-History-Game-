@@ -1,5 +1,7 @@
 import { useRef, useState } from 'react'
 import { CLOTHES, SLOTS, CONFLICTS } from './clothes.js'
+import { GROUP_COUNTRIES } from './regions.js'
+import WorldMap from './WorldMap.jsx'
 
 const BYID = Object.fromEntries(CLOTHES.map((c) => [c.id, c]))
 const CLICK_PX = 5 // pointer moves less than this = click, not drag
@@ -128,6 +130,7 @@ export default function App() {
             ) : (
               <>
                 <h2>Your outfit</h2>
+                <WorldMap highlight={[...new Set(cultureMix.flatMap(([name]) => GROUP_COUNTRIES[name] || []))]} />
                 <h3>Culture mix</h3>
                 <ul className="mix">
                   {cultureMix.map(([name, count]) => {

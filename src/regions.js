@@ -1,0 +1,25 @@
+// Country codes (ISO 3166-1 numeric) for each culture label, used to highlight the map.
+// "European" and "North Asian" are broad labels, so they highlight one representative country.
+export const GROUP_COUNTRIES = {
+  'American': ['840'],
+  'Belgian': ['056'],
+  'Brazilian': ['076'],
+  'British': ['826'],
+  'European': ['250'],
+  'French': ['250'],
+  'German': ['276'],
+  'Indian': ['356'],
+  'Indigenous Costa Rican': ['188'],
+  'Indigenous Panamanian': ['591'],
+  'Irish': ['372'],
+  'Italian': ['380'],
+  'Japanese': ['392'],
+  'Mexican': ['484'],
+  'Moroccan': ['504'],
+  'North Asian': ['643'],
+  'Peruvian': ['604'],
+  'Philippine': ['608'],
+  'Polish': ['616'],
+  'Russian': ['643'],
+  'Spanish': ['724'],
+}
