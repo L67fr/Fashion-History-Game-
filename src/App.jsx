@@ -161,7 +161,7 @@ export default function App() {
                 <ol className="timeline">
                   {timeline.map((c) => (
                     <li key={c.id}>
-                      <span className="when">{c.date}</span>
+                      <span className="when">{c.date.includes('century') ? `c. ${c.year}` : c.date}</span>
                       <span className="what">
                         <strong>{c.title}</strong>, {c.culture}
                         {' · '}
