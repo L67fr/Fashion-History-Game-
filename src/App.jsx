@@ -18,10 +18,17 @@ export default function App() {
 
   function wear(id) {
     if (done) return
-    const { slot } = BYID[id]
+    const piece = BYID[id]
+    const { slot } = piece
     setOutfit((o) => {
       const next = { ...o }
-      for (const s of CONFLICTS[slot] || []) delete next[s]
+      for (const s of CONFLICTS[slot] || []) {
+        // a short dress (coat and waistcoat) can be worn with a skirt or trousers
+        const other = next[s] && BYID[next[s]]
+        if (other?.short && piece.slot === 'bottom') continue
+        if (piece.short && slot === 'dress' && s === 'bottom') continue
+        delete next[s]
+      }
       next[slot] = id
       return next
     })
