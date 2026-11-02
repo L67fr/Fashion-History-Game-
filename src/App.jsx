@@ -152,6 +152,11 @@ export default function App() {
                   })}
                 </ul>
                 <h3>Timeline</h3>
+                {timeline.length > 1 && (
+                  <p className="span">
+                    Spans {timeline[timeline.length - 1].year - timeline[0].year} years, from {timeline[0].year} to {timeline[timeline.length - 1].year}
+                  </p>
+                )}
                 <ol className="timeline">
                   {timeline.map((c) => (
                     <li key={c.id}>

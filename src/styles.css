@@ -88,3 +88,4 @@ footer { margin-top: 24px; font-size: .8rem; color: var(--muted); }
 .world .sea { fill: #dceef8; }
 .world .land { fill: #e4dbd0; stroke: #fffdf9; stroke-width: .3; }
 .world .land.hit { fill: var(--accent); }
+.span { margin: 0 0 8px; color: var(--accent); font-size: .9rem; }
