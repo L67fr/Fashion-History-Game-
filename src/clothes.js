@@ -7,13 +7,14 @@ export const SLOTS = {
   // left/top/height are % of the stage; pieces keep their aspect ratio
   dress:     { label: 'Dresses & ensembles', cx: 50, top: 20, h: 76, z: 1 },
   bottom:    { label: 'Skirts & trousers',   cx: 50, top: 48, h: 49, z: 2 },
-  top:       { label: 'Tops & bodices',      cx: 50, top: 20, h: 40, z: 3 },
-  outer:     { label: 'Coats & robes',       cx: 50, top: 19, h: 68, z: 4 },
-  shoulders: { label: 'Shawls & collars',    cx: 50, top: 19, h: 28, z: 5 },
-  neck:      { label: 'Necklaces',           cx: 50, top: 21, h: 22, z: 6 },
-  pin:       { label: 'Brooches',            cx: 57, top: 25, h: 13, z: 7 },
-  head:      { label: 'Hats & headwear',     cx: 50, top: 0,  h: 19, z: 8 },
-  hand:      { label: 'Fans & purses',       cx: 62, top: 46, h: 20, z: 9 },
+  top:       { label: 'Tops & blouses',      cx: 50, top: 20, h: 40, z: 3 },
+  bodice:    { label: 'Bodices',             cx: 50, top: 20, h: 40, z: 4 },
+  outer:     { label: 'Coats & robes',       cx: 50, top: 19, h: 68, z: 5 },
+  shoulders: { label: 'Shawls & collars',    cx: 50, top: 19, h: 28, z: 6 },
+  neck:      { label: 'Necklaces',           cx: 50, top: 21, h: 22, z: 7 },
+  pin:       { label: 'Brooches',            cx: 57, top: 25, h: 13, z: 8 },
+  head:      { label: 'Hats & headwear',     cx: 50, top: 0,  h: 19, z: 9 },
+  hand:      { label: 'Fans & purses',       cx: 62, top: 46, h: 20, z: 10 },
 }
 
 export const CLOTHES = [
@@ -35,7 +36,7 @@ export const CLOTHES = [
   { id: 'cap-polish', title: 'Cap', date: '1870–80', culture: 'Polish', group: 'Polish', region: 'Europe', year: 1875, medium: 'silk, metallic thread', slot: 'head', fit: { top: -4, h: 12 }, url: met(84580) },
   { id: 'purse-mexican', title: 'Coin purse', date: '1790–1810', culture: 'Mexican', group: 'Mexican', region: 'Americas', year: 1800, medium: 'glass, silk, metal', slot: 'hand', fit: { top: 48, h: 15 }, url: met(156682) },
   { id: 'ensemble-spanish', title: 'Ensemble', date: 'late 16th century', culture: 'Spanish', group: 'Spanish', region: 'Europe', year: 1575, medium: 'silk, linen', slot: 'dress', url: met(98291) },
-  { id: 'bodice-european', title: 'Bodice', date: '18th century', culture: 'European', group: 'European', region: 'Europe', year: 1750, medium: 'silk, metal thread', slot: 'top', fit: { top: 16, h: 37, scaleX: 1.0, cx: 50.5 }, url: met(90397) },
+  { id: 'bodice-european', title: 'Bodice', date: '18th century', culture: 'European', group: 'European', region: 'Europe', year: 1750, medium: 'silk, metal thread', slot: 'bodice', fit: { top: 16, h: 37, scaleX: 1.0, cx: 50.5 }, url: met(90397) },
   { id: 'bertha-belgian', title: 'Bertha', date: 'ca. 1890', culture: 'Belgian', group: 'Belgian', region: 'Europe', year: 1890, medium: 'linen', slot: 'shoulders', fit: { top: 13, h: 28 }, url: met(156799) },
   { id: 'frock-coat-philippine', title: 'Frock coat', date: '1840–49', culture: 'Philippine', group: 'Philippine', region: 'Asia', year: 1845, medium: 'cotton, piña', slot: 'outer', fit: { top: 16, h: 40 }, url: met(158133) },
   { id: 'smock-italian', title: 'Smock', date: 'late 16th century', culture: 'Italian', group: 'Italian', region: 'Europe', year: 1575, medium: 'linen, silk and metal thread', slot: 'dress', fit: { top: 20, h: 74, cx: 52.5, scaleX: 0.85 }, url: met(83861) },
@@ -46,7 +47,6 @@ export const CLOTHES = [
 
 // A dress covers both top and bottom, so they can't be worn together
 export const CONFLICTS = {
-  dress: ['top', 'bottom'],
-  top: ['dress'],
+  dress: ['bottom'],
   bottom: ['dress'],
 }
