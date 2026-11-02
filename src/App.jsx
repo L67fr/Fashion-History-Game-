@@ -1,9 +1,9 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { CLOTHES, SLOTS, CONFLICTS } from './clothes.js'
 import { GROUP_COUNTRIES } from './regions.js'
 import WorldMap from './WorldMap.jsx'
-
-const BYID = Object.fromEntries(CLOTHES.map((c) => [c.id, c]))
+import SavedOutfits from './SavedOutfits.jsx'
+import { BYID, MAX_SAVED, loadSaved, storeSaved, summarize } from './savedOutfits.js'
 const CLICK_PX = 5 // pointer moves less than this = click, not drag
 
 export default function App() {
@@ -12,7 +12,11 @@ export default function App() {
   const [filter, setFilter] = useState('all')
   const [done, setDone] = useState(false) // outfit is complete: form locked, results shown
   const [drag, setDrag] = useState(null) // { id, from: 'closet' | 'form', x, y, moved }
+  const [saved, setSaved] = useState(loadSaved)
+  const [name, setName] = useState('')
   const stageRef = useRef(null)
+
+  useEffect(() => storeSaved(saved), [saved])
 
   const worn = new Set(Object.values(outfit))
 
@@ -79,12 +83,25 @@ export default function App() {
     setDone(false)
   }
 
+  function saveOutfit() {
+    if (saved.length >= MAX_SAVED || !worn.size) return
+    const item = { id: Date.now().toString(36), name: name.trim() || `Outfit ${saved.length + 1}`, outfit }
+    setSaved((list) => [...list, item])
+    setName('')
+  }
+
+  function loadOutfit(item) {
+    setOutfit(item.outfit)
+    setDone(false)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  function deleteOutfit(id) {
+    setSaved((list) => list.filter((item) => item.id !== id))
+  }
+
   // results: share of each culture label among the worn pieces, and the pieces by date
-  const pieces = Object.values(outfit).map((id) => BYID[id])
-  const cultureMix = Object.entries(
-    pieces.reduce((acc, c) => ({ ...acc, [c.group]: (acc[c.group] || 0) + 1 }), {})
-  ).sort((a, b) => b[1] - a[1])
-  const timeline = [...pieces].sort((a, b) => a.year - b.year)
+  const { pieces, cultureMix, timeline, span } = summarize(outfit)
 
   const shown = CLOTHES.filter((c) => filter === 'all' || c.slot === filter)
   const dragging = drag?.moved && !done ? BYID[drag.id] : null
@@ -154,7 +171,7 @@ export default function App() {
                 <h3>Timeline</h3>
                 {timeline.length > 1 && (
                   <div className="span">
-                    <strong>{timeline[timeline.length - 1].year - timeline[0].year}</strong>
+                    <strong>{span}</strong>
                     <span> years spanned</span>
                   </div>
                 )}
@@ -170,6 +187,18 @@ export default function App() {
                     </li>
                   ))}
                 </ol>
+                <div className="save-row">
+                  <input
+                    type="text"
+                    value={name}
+                    maxLength={40}
+                    placeholder="Name this outfit"
+                    onChange={(e) => setName(e.target.value)}
+                    onKeyDown={(e) => e.key === 'Enter' && saveOutfit()}
+                  />
+                  <button className="primary" onClick={saveOutfit} disabled={saved.length >= MAX_SAVED}>Save outfit</button>
+                </div>
+                {saved.length >= MAX_SAVED && <p className="muted">You've saved {MAX_SAVED} outfits. Delete one to save another.</p>}
               </>
             )}
           </div>
@@ -198,6 +227,8 @@ export default function App() {
       {dragging && (
         <img className="ghost" src={dragging.img} alt="" style={{ left: drag.x, top: drag.y }} />
       )}
+
+      <SavedOutfits saved={saved} onLoad={loadOutfit} onDelete={deleteOutfit} />
 
       <footer>
         All garments: The Metropolitan Museum of Art, The Costume Institute (Open Access). Original Scratch game by lazerm67.

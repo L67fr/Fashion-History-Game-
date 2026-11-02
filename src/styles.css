@@ -90,3 +90,35 @@ footer { margin-top: 24px; font-size: .8rem; color: var(--muted); }
 .world .land.hit { fill: var(--accent); }
 .span { display: flex; align-items: baseline; gap: 6px; margin: 0 0 12px; color: var(--muted); }
 .span strong { font-size: 2rem; color: var(--accent); font-weight: normal; }
+
+/* saved outfits */
+.save-row { display: flex; gap: 8px; margin-top: 14px; }
+.save-row input { flex: 1; min-width: 0; border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; background: var(--panel); color: var(--ink); font: inherit; }
+.save-row button { border-radius: 999px; padding: 6px 14px; border: 1px solid var(--accent); background: var(--accent); color: #fff; font: inherit; }
+.save-row button:disabled { opacity: .5; cursor: default; }
+
+.saved-wrap { max-width: 1200px; margin: 28px auto 0; padding: 0 16px; }
+.saved-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.saved-head h2 { margin: 0; font-size: 1.3rem; }
+.saved-head button { border: 1px solid var(--line); background: var(--panel); color: var(--ink); border-radius: 999px; padding: 6px 14px; font: inherit; }
+.saved-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+.saved-card { position: relative; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 8px; }
+.saved-open { display: flex; flex-direction: column; width: 100%; border: 0; background: none; padding: 0; cursor: pointer; text-align: left; font: inherit; color: var(--ink); }
+.saved-name { font-weight: bold; font-size: .9rem; margin-top: 6px; }
+.saved-del { position: absolute; top: 4px; right: 6px; border: 0; background: none; color: var(--muted); font-size: 1.1rem; cursor: pointer; }
+
+.mini-stage { position: relative; aspect-ratio: 4 / 5; background: linear-gradient(var(--sky1), var(--sky2)); border-radius: 8px; overflow: hidden; }
+.mini-stage .figure { position: absolute; left: 0; right: 0; top: 20%; bottom: 0; }
+.mini-stage .worn { cursor: default; }
+
+.hover-card { position: absolute; left: 0; top: calc(100% + 8px); width: min(300px, 80vw); z-index: 30; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,.2); padding: 12px 14px; pointer-events: none; font-size: .85rem; }
+.hover-card strong { display: block; margin-bottom: 6px; }
+.detail .span { margin-bottom: 8px; }
+.detail .span strong { font-size: 1.4rem; }
+.detail .mix li { grid-template-columns: 7rem 1fr 2.6rem; }
+.detail .timeline li { grid-template-columns: 6rem 1fr; }
+
+.compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 18px; }
+.compare-col { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 12px; }
+.compare-col h3 { margin: 0 0 8px; font-size: 1rem; text-transform: none; letter-spacing: normal; color: var(--ink); }
+.compare .mini-stage { max-width: 260px; margin: 0 auto 12px; }
