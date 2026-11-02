@@ -41,7 +41,7 @@ export const CLOTHES = [
   { id: 'smock-italian', title: 'Smock', date: 'late 16th century', culture: 'Italian', group: 'Italian', region: 'Europe', year: 1575, medium: 'linen, silk and metal thread', slot: 'dress', fit: { top: 20, h: 74, cx: 52.5, scaleX: 0.85 }, url: met(83861) },
   { id: 'skirt-french', title: 'Skirt', date: '1840–60', culture: 'French', group: 'French', region: 'Europe', year: 1850, medium: 'cotton', slot: 'bottom', fit: { top: 42, h: 56 }, url: met(156833) },
   { id: 'jacket-german', title: 'Jacket', date: '1898–1900', culture: 'German', group: 'German', region: 'Europe', year: 1899, medium: 'wool, brass, metal', slot: 'outer', fit: { top: 16, h: 40, cx: 51.5, scaleX: 0.92 }, url: met(104950) },
-  { id: 'dress-irish', title: 'Dress', date: 'ca. 1875', culture: 'Irish', group: 'Irish', region: 'Europe', year: 1875, medium: 'silk', slot: 'dress', fit: { top: 17, h: 80, cx: 54, scaleX: 0.9 }, url: met(174693) },
+  { id: 'dress-irish', title: 'Dress', date: 'ca. 1875', culture: 'Irish', group: 'Irish', region: 'Europe', year: 1875, medium: 'silk', slot: 'dress', fit: { top: 17, h: 80, cx: 54, scaleX: 1.08 }, url: met(174693) },
 ].map((c) => ({ ...c, img: `${import.meta.env.BASE_URL}clothes/${c.id}.png` }))
 
 // A dress covers both top and bottom, so they can't be worn together
