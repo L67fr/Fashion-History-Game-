@@ -104,7 +104,7 @@ export default function App() {
                   alt={c.title}
                   draggable="false"
                   title={c.title}
-                  style={{ left: `${s.cx}%`, top: `${s.top}%`, height: `${s.h}%`, zIndex: s.z, opacity: hidden ? 0.25 : 1, cursor: done ? 'default' : 'grab' }}
+                  style={{ left: `${s.cx}%`, top: `${s.top}%`, height: `${s.h}%`, zIndex: s.z, opacity: hidden ? 0.25 : 1, transform: `translateX(-50%) scaleX(${s.scaleX ?? 1})`, cursor: done ? 'default' : 'grab' }}
                   onPointerDown={(e) => startDrag(e, id, 'form')}
                 />
               )
