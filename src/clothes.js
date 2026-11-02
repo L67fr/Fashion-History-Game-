@@ -6,7 +6,7 @@ const met = (id) => `https://www.metmuseum.org/art/collection/search/${id}`
 export const SLOTS = {
   // left/top/height are % of the stage; pieces keep their aspect ratio
   dress:     { label: 'Dresses & ensembles', cx: 50, top: 20, h: 76, z: 1 },
-  bottom:    { label: 'Skirts & trousers',   cx: 50, top: 48, h: 49, z: 2 },
+  bottom:    { label: 'Skirts & trousers',   cx: 50, top: 48, h: 49, z: 0 },
   chemise:   { label: 'Smocks & chemises',   cx: 50, top: 20, h: 40, z: 3 },
   top:       { label: 'Tops & blouses',      cx: 50, top: 20, h: 40, z: 4 },
   bodice:    { label: 'Bodices',             cx: 50, top: 20, h: 40, z: 5 },
