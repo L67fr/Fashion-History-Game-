@@ -4,6 +4,7 @@ import { GROUP_COUNTRIES } from './regions.js'
 import WorldMap from './WorldMap.jsx'
 import SavedOutfits from './SavedOutfits.jsx'
 import { BYID, MAX_SAVED, loadSaved, storeSaved, summarize } from './savedOutfits.js'
+import { BG_PRESETS, loadBg, storeBg } from './background.js'
 const CLICK_PX = 5 // pointer moves less than this = click, not drag
 
 export default function App() {
@@ -14,10 +15,18 @@ export default function App() {
   const [drag, setDrag] = useState(null) // { id, from: 'closet' | 'form', x, y, moved }
   const [features, setFeatures] = useState([]) // face features; several can be on at once
   const [saved, setSaved] = useState(loadSaved)
+  const [bg, setBg] = useState(loadBg)
   const [name, setName] = useState('')
   const stageRef = useRef(null)
 
   useEffect(() => storeSaved(saved), [saved])
+
+  // the figure and saved previews both read these two variables
+  useEffect(() => {
+    document.documentElement.style.setProperty('--sky1', bg[0])
+    document.documentElement.style.setProperty('--sky2', bg[1])
+    storeBg(bg)
+  }, [bg])
 
   const worn = new Set(Object.values(outfit))
 
@@ -127,6 +136,23 @@ export default function App() {
 
       <main>
         <section className="stage-wrap">
+          <div className="bg-row" aria-label="Background colour">
+            {BG_PRESETS.map((p) => (
+              <button
+                key={p.label}
+                className={bg[0] === p.colors[0] && bg[1] === p.colors[1] ? 'on' : ''}
+                style={{ background: `linear-gradient(${p.colors[0]}, ${p.colors[1]})` }}
+                onClick={() => setBg(p.colors)}
+                title={p.label}
+                aria-label={`${p.label} background`}
+              />
+            ))}
+            <label className="bg-custom" title="Pick your own top and bottom colours">
+              Custom
+              <input type="color" value={bg[0]} onChange={(e) => setBg([e.target.value, bg[1]])} aria-label="Top colour" />
+              <input type="color" value={bg[1]} onChange={(e) => setBg([bg[0], e.target.value])} aria-label="Bottom colour" />
+            </label>
+          </div>
           <div className="stage" ref={stageRef}>
             <div className="figure">
               <img className="form" src={`${import.meta.env.BASE_URL}form.png`} alt="Dress form" draggable="false" />
