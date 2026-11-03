@@ -6,6 +6,7 @@ export const GROUP_COUNTRIES = {
   'American': ['840'],
   'Belgian': ['056'],
   'Brazilian': ['076'],
+  'Chinese': ['156'],
   'British': ['826'],
   'European': EUROPE,
   'French': ['250'],
