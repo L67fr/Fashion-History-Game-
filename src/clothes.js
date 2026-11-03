@@ -56,7 +56,7 @@ export const CONFLICTS = {
 // y is percent of the figure height from the top, w is the width as percent of the figure height.
 const feat = (id) => `${import.meta.env.BASE_URL}features/${id}.svg`
 export const FEATURES = [
-  { id: 'eyebrows', title: 'Eyebrows', x: 0, y: 7.6, w: 11, img: feat('eyebrows') },
+  { id: 'eyebrows', title: 'Eyebrows', x: 0, y: 7.6, w: 7, img: feat('eyebrows') },
   { id: 'round-glasses', title: 'Round glasses', x: 0, y: 8.7, w: 11, img: feat('round-glasses') },
   { id: 'monocle', title: 'Monocle', x: 2.5, y: 8.6, w: 5, img: feat('monocle') },
   { id: 'mole', title: 'Mole', x: -3, y: 10.6, w: 1.2, img: feat('mole') },
