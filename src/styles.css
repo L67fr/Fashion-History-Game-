@@ -136,3 +136,6 @@ footer { margin-top: 24px; font-size: .8rem; color: var(--muted); }
 .save-inline button:hover:not(:disabled) { filter: brightness(1.08); }
 .save-inline input { border-color: #2f6b4f; }
 .stage-actions .save-inline button.primary { background: #2f6b4f; border-color: #2f6b4f; color: #fff; padding: 8px 18px; font-weight: bold; box-shadow: 0 2px 6px rgba(47,107,79,.35); }
+.hover-card .timeline { margin-top: 10px; }
+.compare-col .timeline { margin-top: 12px; }
+.detail .timeline { margin-top: 12px; }
