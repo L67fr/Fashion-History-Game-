@@ -51,3 +51,16 @@ export const CONFLICTS = {
   dress: ['bottom'],
   bottom: ['dress'],
 }
+
+// Drawn features (black illustrations) placed on the face. x is percent of the figure height from the head's centre,
+// y is percent of the figure height from the top, w is the width as percent of the figure height.
+const feat = (id) => `${import.meta.env.BASE_URL}features/${id}.svg`
+export const FEATURES = [
+  { id: 'eyebrows', title: 'Eyebrows', x: 0, y: 7.6, w: 11, img: feat('eyebrows') },
+  { id: 'round-glasses', title: 'Round glasses', x: 0, y: 8.7, w: 11, img: feat('round-glasses') },
+  { id: 'monocle', title: 'Monocle', x: 2.5, y: 8.6, w: 5, img: feat('monocle') },
+  { id: 'mole', title: 'Mole', x: -3, y: 10.6, w: 1.2, img: feat('mole') },
+  { id: 'beauty-patch', title: 'Beauty patch', x: 3.5, y: 10.2, w: 1.2, img: feat('beauty-patch') },
+  { id: 'mustache', title: 'Mustache', x: 0, y: 11.8, w: 7, img: feat('mustache') },
+]
+export const FEAT_BY = Object.fromEntries(FEATURES.map((f) => [f.id, f]))

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { CLOTHES, SLOTS, CONFLICTS } from './clothes.js'
+import { CLOTHES, SLOTS, CONFLICTS, FEATURES, FEAT_BY } from './clothes.js'
 import { GROUP_COUNTRIES } from './regions.js'
 import WorldMap from './WorldMap.jsx'
 import SavedOutfits from './SavedOutfits.jsx'
@@ -12,6 +12,7 @@ export default function App() {
   const [filter, setFilter] = useState('all')
   const [done, setDone] = useState(false) // outfit is complete: form locked, results shown
   const [drag, setDrag] = useState(null) // { id, from: 'closet' | 'form', x, y, moved }
+  const [features, setFeatures] = useState([]) // face features; several can be on at once
   const [saved, setSaved] = useState(loadSaved)
   const [name, setName] = useState('')
   const stageRef = useRef(null)
@@ -80,18 +81,25 @@ export default function App() {
 
   function undress() {
     setOutfit({})
+    setFeatures([])
     setDone(false)
   }
 
   function saveOutfit() {
     if (saved.length >= MAX_SAVED || !worn.size) return
-    const item = { id: Date.now().toString(36), name: name.trim() || `Outfit ${saved.length + 1}`, outfit }
+    const item = { id: Date.now().toString(36), name: name.trim() || `Outfit ${saved.length + 1}`, outfit, features }
     setSaved((list) => [...list, item])
     setName('')
   }
 
+  function toggleFeature(id) {
+    if (done) return
+    setFeatures((list) => (list.includes(id) ? list.filter((x) => x !== id) : [...list, id]))
+  }
+
   function loadOutfit(item) {
     setOutfit(item.outfit)
+    setFeatures(item.features || [])
     setDone(false)
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
@@ -118,6 +126,9 @@ export default function App() {
           <div className="stage" ref={stageRef}>
             <div className="figure">
               <img className="form" src={`${import.meta.env.BASE_URL}form.png`} alt="Dress form" draggable="false" />
+              {features.map((id) => FEAT_BY[id] && (
+                <img key={id} className="feature" src={FEAT_BY[id].img} alt="" draggable="false" style={{ left: `calc(50% + ${FEAT_BY[id].x}cqh)`, top: `${FEAT_BY[id].y}cqh`, width: `${FEAT_BY[id].w}cqh` }} />
+              ))}
               {Object.entries(outfit).map(([slot, id]) => {
               const c = BYID[id]
               const s = { ...SLOTS[slot], ...c.fit }
@@ -212,7 +223,20 @@ export default function App() {
             {Object.entries(SLOTS).map(([key, s]) => (
               <button key={key} className={filter === key ? 'on' : ''} onClick={() => setFilter(key)}>{s.label}</button>
             ))}
+            <button className={filter === 'features' ? 'on' : ''} onClick={() => setFilter('features')}>Features</button>
           </div>
+          {filter === 'features' ? (
+            <ul className="grid">
+              {FEATURES.map((f) => (
+                <li key={f.id} className={features.includes(f.id) ? 'worn-tile' : ''}>
+                  <button onClick={() => toggleFeature(f.id)} title="Click to add or remove" disabled={done}>
+                    <img src={f.img} alt={f.title} draggable="false" />
+                  </button>
+                  <span className="name">{f.title}</span>
+                </li>
+              ))}
+            </ul>
+          ) : (
           <ul className="grid">
             {shown.map((c) => (
               <li key={c.id} className={worn.has(c.id) ? 'worn-tile' : ''}>
@@ -223,6 +247,7 @@ export default function App() {
               </li>
             ))}
           </ul>
+          )}
         </section>
       </main>
 

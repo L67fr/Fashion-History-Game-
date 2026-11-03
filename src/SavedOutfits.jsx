@@ -1,13 +1,16 @@
 import { useState } from 'react'
 import { BYID, MAX_SAVED, summarize } from './savedOutfits.js'
-import { SLOTS } from './clothes.js'
+import { SLOTS, FEAT_BY } from './clothes.js'
 
 // A small figure with the pieces placed the same way as on the main form
-export function OutfitFigure({ outfit }) {
+export function OutfitFigure({ outfit, features = [] }) {
   return (
     <div className="mini-stage">
       <div className="figure">
         <img className="form" src={`${import.meta.env.BASE_URL}form.png`} alt="" draggable="false" />
+        {features.map((id) => FEAT_BY[id] && (
+          <img key={id} className="feature" src={FEAT_BY[id].img} alt="" draggable="false" style={{ left: `calc(50% + ${FEAT_BY[id].x}cqh)`, top: `${FEAT_BY[id].y}cqh`, width: `${FEAT_BY[id].w}cqh` }} />
+        ))}
         {Object.entries(outfit).map(([slot, id]) => {
           const c = BYID[id]
           if (!c) return null
@@ -68,7 +71,7 @@ function SavedCard({ item, onLoad, onDelete }) {
   return (
     <div className="saved-card" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
       <button className="saved-open" onClick={() => onLoad(item)} title="Load this outfit onto the form">
-        <OutfitFigure outfit={item.outfit} />
+        <OutfitFigure outfit={item.outfit} features={item.features} />
         <span className="saved-name">{item.name}</span>
       </button>
       <button className="saved-del" onClick={() => onDelete(item.id)} aria-label={`Delete ${item.name}`}>×</button>
@@ -107,7 +110,7 @@ export default function SavedOutfits({ saved, onLoad, onDelete }) {
           {saved.map((item) => (
             <div key={item.id} className="compare-col">
               <h3>{item.name}</h3>
-              <OutfitFigure outfit={item.outfit} />
+              <OutfitFigure outfit={item.outfit} features={item.features} />
               <OutfitDetail outfit={item.outfit} />
             </div>
           ))}

@@ -141,3 +141,8 @@ footer { margin-top: 24px; font-size: .8rem; color: var(--muted); }
 .detail .timeline { margin-top: 12px; }
 .saved-del { z-index: 31; }
 .saved-hint { margin: 0 0 12px; font-size: .9rem; }
+
+/* face features: sized in figure-height units (cqh) so they track the head */
+.figure { container-type: size; }
+.feature { position: absolute; transform: translate(-50%, -50%); pointer-events: none; z-index: 20; }
+.mini-stage .figure { container-type: size; }
