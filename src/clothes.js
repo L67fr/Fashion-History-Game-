@@ -67,3 +67,9 @@ export const FEATURES = [
   { id: 'hoop-earrings', title: 'Hoop earrings', x: 0, y: 14.4, w: 14, img: feat('hoop-earrings') },
 ]
 export const FEAT_BY = Object.fromEntries(FEATURES.map((f) => [f.id, f]))
+
+// features that can't be worn together: adding one removes the others in its group
+export const FEATURE_CONFLICTS = {
+  eyebrows: ['lashes'],
+  lashes: ['eyebrows'],
+}

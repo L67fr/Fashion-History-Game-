@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { CLOTHES, SLOTS, CONFLICTS, FEATURES, FEAT_BY } from './clothes.js'
+import { CLOTHES, SLOTS, CONFLICTS, FEATURES, FEAT_BY, FEATURE_CONFLICTS } from './clothes.js'
 import { GROUP_COUNTRIES } from './regions.js'
 import WorldMap from './WorldMap.jsx'
 import SavedOutfits from './SavedOutfits.jsx'
@@ -94,7 +94,11 @@ export default function App() {
 
   function toggleFeature(id) {
     if (done) return
-    setFeatures((list) => (list.includes(id) ? list.filter((x) => x !== id) : [...list, id]))
+    setFeatures((list) => {
+      if (list.includes(id)) return list.filter((x) => x !== id)
+      const blocked = FEATURE_CONFLICTS[id] || []
+      return [...list.filter((x) => !blocked.includes(x)), id]
+    })
   }
 
   function loadOutfit(item) {
