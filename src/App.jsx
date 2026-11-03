@@ -146,6 +146,20 @@ export default function App() {
               <button className="primary" onClick={() => setDone(true)} disabled={!worn.size}>Complete</button>
             )}
             <span>{worn.size} piece{worn.size === 1 ? '' : 's'} worn</span>
+            {done && (
+              <span className="save-inline">
+                <input
+                  type="text"
+                  value={name}
+                  maxLength={40}
+                  placeholder="Name this outfit"
+                  onChange={(e) => setName(e.target.value)}
+                  onKeyDown={(e) => e.key === 'Enter' && saveOutfit()}
+                />
+                <button className="primary" onClick={saveOutfit} disabled={saved.length >= MAX_SAVED}>Save outfit</button>
+              </span>
+            )}
+            {done && saved.length >= MAX_SAVED && <span className="muted">{MAX_SAVED} saved. Delete one to save more.</span>}
           </div>
 
           <div className="info">
@@ -187,18 +201,6 @@ export default function App() {
                     </li>
                   ))}
                 </ol>
-                <div className="save-row">
-                  <input
-                    type="text"
-                    value={name}
-                    maxLength={40}
-                    placeholder="Name this outfit"
-                    onChange={(e) => setName(e.target.value)}
-                    onKeyDown={(e) => e.key === 'Enter' && saveOutfit()}
-                  />
-                  <button className="primary" onClick={saveOutfit} disabled={saved.length >= MAX_SAVED}>Save outfit</button>
-                </div>
-                {saved.length >= MAX_SAVED && <p className="muted">You've saved {MAX_SAVED} outfits. Delete one to save another.</p>}
               </>
             )}
           </div>
