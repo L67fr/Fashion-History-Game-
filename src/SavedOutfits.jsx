@@ -3,9 +3,11 @@ import { BYID, MAX_SAVED, summarize } from './savedOutfits.js'
 import { SLOTS, FEAT_BY } from './clothes.js'
 
 // A small figure with the pieces placed the same way as on the main form
-export function OutfitFigure({ outfit, features = [] }) {
+export function OutfitFigure({ outfit, features = [], bg }) {
+  // a saved outfit keeps the background it was saved with
+  const background = bg ? { background: `linear-gradient(${bg[0]}, ${bg[1]})` } : undefined
   return (
-    <div className="mini-stage">
+    <div className="mini-stage" style={background}>
       <div className="figure">
         <img className="form" src={`${import.meta.env.BASE_URL}form.png`} alt="" draggable="false" />
         {features.map((id) => FEAT_BY[id] && (
@@ -71,7 +73,7 @@ function SavedCard({ item, onLoad, onDelete }) {
   return (
     <div className="saved-card" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
       <button className="saved-open" onClick={() => onLoad(item)} title="Load this outfit onto the form">
-        <OutfitFigure outfit={item.outfit} features={item.features} />
+        <OutfitFigure outfit={item.outfit} features={item.features} bg={item.bg} />
         <span className="saved-name">{item.name}</span>
       </button>
       <button className="saved-del" onClick={() => onDelete(item.id)} aria-label={`Delete ${item.name}`}>×</button>
@@ -110,7 +112,7 @@ export default function SavedOutfits({ saved, onLoad, onDelete }) {
           {saved.map((item) => (
             <div key={item.id} className="compare-col">
               <h3>{item.name}</h3>
-              <OutfitFigure outfit={item.outfit} features={item.features} />
+              <OutfitFigure outfit={item.outfit} features={item.features} bg={item.bg} />
               <OutfitDetail outfit={item.outfit} />
             </div>
           ))}

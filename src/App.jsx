@@ -96,7 +96,7 @@ export default function App() {
 
   function saveOutfit() {
     if (saved.length >= MAX_SAVED || !worn.size) return
-    const item = { id: Date.now().toString(36), name: name.trim() || `Outfit ${saved.length + 1}`, outfit, features }
+    const item = { id: Date.now().toString(36), name: name.trim() || `Outfit ${saved.length + 1}`, outfit, features, bg }
     setSaved((list) => [...list, item])
     setName('')
   }
