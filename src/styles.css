@@ -112,7 +112,7 @@ footer { margin-top: 24px; font-size: .8rem; color: var(--muted); }
 .mini-stage .worn { cursor: default; }
 
 .hover-card { position: absolute; inset: 0; z-index: 30; overflow: auto; background: var(--panel); border-radius: 10px; padding: 10px 12px; pointer-events: auto; overscroll-behavior: contain; font-size: .8rem; }
-.hover-card strong { display: block; margin-bottom: 6px; }
+.hover-card > strong { display: block; margin-bottom: 6px; }
 .detail .span { margin-bottom: 8px; }
 .detail .span strong { font-size: 1.4rem; }
 .detail .mix li { grid-template-columns: 7rem 1fr 2.6rem; }
