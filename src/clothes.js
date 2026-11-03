@@ -72,4 +72,6 @@ export const FEAT_BY = Object.fromEntries(FEATURES.map((f) => [f.id, f]))
 export const FEATURE_CONFLICTS = {
   eyebrows: ['lashes'],
   lashes: ['eyebrows'],
+  'drop-earrings': ['hoop-earrings'],
+  'hoop-earrings': ['drop-earrings'],
 }
