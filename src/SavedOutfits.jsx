@@ -73,7 +73,7 @@ function SavedCard({ item, onLoad, onDelete }) {
       </button>
       <button className="saved-del" onClick={() => onDelete(item.id)} aria-label={`Delete ${item.name}`}>×</button>
       {hover && (
-        <div className="hover-card">
+        <div className="hover-card" onClick={() => onLoad(item)} title="Load this outfit onto the form">
           <strong>{item.name}</strong>
           <OutfitDetail outfit={item.outfit} />
         </div>
