@@ -156,7 +156,7 @@ export default function App() {
                   onChange={(e) => setName(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && saveOutfit()}
                 />
-                <button className="primary" onClick={saveOutfit} disabled={saved.length >= MAX_SAVED}>Save outfit</button>
+                <button className="primary" onClick={saveOutfit} disabled={saved.length >= MAX_SAVED}>Save to wardrobe</button>
               </span>
             )}
             {done && saved.length >= MAX_SAVED && <span className="muted">{MAX_SAVED} saved. Delete one to save more.</span>}
