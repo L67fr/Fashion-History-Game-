@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { BYID, MAX_SAVED, summarize } from './savedOutfits.js'
 import { SLOTS, FEAT_BY } from './clothes.js'
-import { DEFAULT_BG } from './background.js'
+import { LEGACY_BG } from './background.js'
 
 // A small figure with the pieces placed the same way as on the main form
 export function OutfitFigure({ outfit, features = [], bg }) {
-  // each saved outfit keeps its own background; older saves use the default, never the current one
-  const [top, bottom] = bg || DEFAULT_BG
+  // each saved outfit keeps its own background; older saves use a fixed pale sky, never the current one
+  const [top, bottom] = bg || LEGACY_BG
   const background = { background: `linear-gradient(${top}, ${bottom})` }
   return (
     <div className="mini-stage" style={background}>

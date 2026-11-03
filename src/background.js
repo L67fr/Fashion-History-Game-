@@ -6,6 +6,8 @@ export const BG_PRESETS = [
   { label: 'Studio', colors: ['#7f8c9c', '#dfe5ec'] },
 ]
 export const DEFAULT_BG = BG_PRESETS[0].colors
+// the original pale sky, used for older saved outfits so their cards never change with preset tweaks
+export const LEGACY_BG = ['#bfe3f5', '#eaf6fc']
 
 const KEY = 'fashion-game-bg'
 
