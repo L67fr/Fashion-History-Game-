@@ -113,6 +113,7 @@ export default function App() {
   function loadOutfit(item) {
     setOutfit(item.outfit)
     setFeatures(item.features || [])
+    if (item.bg) setBg(item.bg)
     setDone(false)
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
