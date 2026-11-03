@@ -123,7 +123,7 @@ export default function App() {
   }
 
   // results: share of each culture label among the worn pieces, and the pieces by date
-  const { pieces, cultureMix, timeline, span } = summarize(outfit)
+  const { pieces, cultureMix, timeline, span, approx } = summarize(outfit)
 
   const shown = CLOTHES.filter((c) => filter === 'all' || c.slot === filter)
   const dragging = drag?.moved && !done ? BYID[drag.id] : null
@@ -227,14 +227,14 @@ export default function App() {
                 <h3>Timeline</h3>
                 {timeline.length > 1 && (
                   <div className="span">
-                    <strong>{span}</strong>
+                    <strong>{approx ? '≈ ' : ''}{span}</strong>
                     <span> years spanned</span>
                   </div>
                 )}
                 <ol className="timeline">
                   {timeline.map((c) => (
                     <li key={c.id}>
-                      <span className="when">{c.date.includes('century') ? `c. ${c.year}` : c.date}</span>
+                      <span className="when">{c.date.includes('century') && !c.date.includes('–') ? `c. ${c.year}` : c.date}</span>
                       <span className="what">
                         <strong>{c.title}</strong>, {c.culture}
                         {' · '}

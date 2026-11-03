@@ -23,6 +23,11 @@ export function storeSaved(list) {
   }
 }
 
+// a single exact year is precise; centuries, ranges and 'ca.' dates are approximate
+export function isApprox(date) {
+  return !/^\d{4}$/.test(date.trim())
+}
+
 // Culture mix, timeline and span for one outfit (slot -> piece id)
 export function summarize(outfit) {
   const pieces = Object.values(outfit).map((id) => BYID[id]).filter(Boolean)
@@ -31,5 +36,6 @@ export function summarize(outfit) {
   ).sort((a, b) => b[1] - a[1])
   const timeline = [...pieces].sort((a, b) => a.year - b.year)
   const span = timeline.length > 1 ? timeline[timeline.length - 1].year - timeline[0].year : 0
-  return { pieces, cultureMix, timeline, span }
+  const approx = pieces.some((c) => isApprox(c.date))
+  return { pieces, cultureMix, timeline, span, approx }
 }

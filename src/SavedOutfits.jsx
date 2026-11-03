@@ -37,12 +37,12 @@ export function OutfitFigure({ outfit, features = [], bg }) {
 
 // Culture mix and timeline, used by the hover card and the compare view
 export function OutfitDetail({ outfit }) {
-  const { cultureMix, timeline, span, pieces } = summarize(outfit)
+  const { cultureMix, timeline, span, pieces, approx } = summarize(outfit)
   return (
     <div className="detail">
       {timeline.length > 1 && (
         <div className="span">
-          <strong>{span}</strong>
+          <strong>{approx ? '≈ ' : ''}{span}</strong>
           <span> years spanned</span>
         </div>
       )}
@@ -61,7 +61,7 @@ export function OutfitDetail({ outfit }) {
       <ol className="timeline">
         {timeline.map((c) => (
           <li key={c.id}>
-            <span className="when">{c.date.includes('century') ? `c. ${c.year}` : c.date}</span>
+            <span className="when">{c.date.includes('century') && !c.date.includes('–') ? `c. ${c.year}` : c.date}</span>
             <span className="what"><strong>{c.title}</strong>, {c.culture}</span>
           </li>
         ))}
