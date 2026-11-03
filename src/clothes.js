@@ -15,6 +15,7 @@ export const SLOTS = {
   neck:      { label: 'Necklaces',           cx: 50, top: 21, h: 22, z: 8 },
   pin:       { label: 'Brooches',            cx: 57, top: 25, h: 13, z: 9 },
   head:      { label: 'Hats & headwear',     cx: 50, top: 0,  h: 19, z: 10 },
+  eyewear:   { label: 'Eyewear',             cx: 50, top: 8, h: 2.2, z: 12 },
   hand:      { label: 'Fans & purses',       cx: 62, top: 46, h: 20, z: 11 },
 }
 
@@ -31,6 +32,7 @@ export const CLOTHES = [
   { id: 'pectoral-panamanian', title: 'Pectoral', date: '11th–16th century', culture: 'Indigenous American (Panamanian)', group: 'Indigenous Panamanian', region: 'Americas', year: 1350, medium: 'gold, synthetic', slot: 'neck', fit: { top: 23, h: 20, cx: 51 }, url: met(141754) },
   { id: 'necklace-costa-rican', title: 'Necklace', date: '500 BCE–900 CE', culture: 'Indigenous American (Costa Rican)', group: 'Indigenous Costa Rican', region: 'Americas', year: 200, medium: 'jade', slot: 'neck', fit: { top: 17, h: 20, cx: 50 }, url: met(141757) },
   { id: 'banyan-chinese', title: 'Banyan', date: '1760–70', culture: 'Chinese', group: 'Chinese', region: 'Asia', year: 1765, medium: 'silk, linen', slot: 'outer', url: met(139667) },
+  { id: 'eyeglasses-japanese', title: 'Eyeglasses', date: '1930–59', culture: 'Japanese', group: 'Japanese', region: 'Asia', year: 1945, medium: 'plastic, metal, glass', slot: 'eyewear', url: met(104739) },
   { id: 'coat-british', title: 'Coat', date: '1630–40', culture: 'British', group: 'British', region: 'Europe', year: 1635, medium: 'leather', slot: 'outer', fit: { top: 18, h: 46, cx: 51 }, url: met(81556) },
   { id: 'trousers-american', title: 'Trousers', date: '1800–1830', culture: 'American', group: 'American', region: 'Americas', year: 1815, medium: 'cotton, linen', slot: 'bottom', fit: { top: 44, h: 54, cx: 49.5, scaleX: 0.85 }, url: met(911443) },
   { id: 'hakama-japanese', title: 'Trousers ("hakama") associated with Kyogen', date: 'late 19th century', culture: 'Japan', group: 'Japanese', region: 'Asia', year: 1875, medium: 'hemp', slot: 'bottom', fit: { top: 44, h: 68 }, url: met(44633) },
