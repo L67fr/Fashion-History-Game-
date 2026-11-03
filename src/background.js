@@ -1,9 +1,9 @@
 // Background colours for the figure: top and bottom of the gradient
 export const BG_PRESETS = [
-  { label: 'Sky', colors: ['#bfe3f5', '#eaf6fc'] },
-  { label: 'Parlour', colors: ['#eadcc4', '#fbf6ee'] },
-  { label: 'Dusk', colors: ['#c9a7b4', '#ece0e6'] },
-  { label: 'Studio', colors: ['#b4bac3', '#eef0f3'] },
+  { label: 'Sky', colors: ['#5bb8ec', '#c4ebff'] },
+  { label: 'Parlour', colors: ['#e8c48a', '#fff1d6'] },
+  { label: 'Dusk', colors: ['#d46a94', '#f5c6d9'] },
+  { label: 'Studio', colors: ['#7f8c9c', '#dfe5ec'] },
 ]
 export const DEFAULT_BG = BG_PRESETS[0].colors
 
