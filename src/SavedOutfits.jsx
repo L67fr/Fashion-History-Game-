@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import { BYID, MAX_SAVED, summarize } from './savedOutfits.js'
 import { SLOTS, FEAT_BY } from './clothes.js'
+import { DEFAULT_BG } from './background.js'
 
 // A small figure with the pieces placed the same way as on the main form
 export function OutfitFigure({ outfit, features = [], bg }) {
-  // a saved outfit keeps the background it was saved with
-  const background = bg ? { background: `linear-gradient(${bg[0]}, ${bg[1]})` } : undefined
+  // each saved outfit keeps its own background; older saves use the default, never the current one
+  const [top, bottom] = bg || DEFAULT_BG
+  const background = { background: `linear-gradient(${top}, ${bottom})` }
   return (
     <div className="mini-stage" style={background}>
       <div className="figure">
