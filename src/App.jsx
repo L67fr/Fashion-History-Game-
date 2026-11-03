@@ -225,6 +225,17 @@ export default function App() {
             ))}
             <button className={filter === 'features' ? 'on' : ''} onClick={() => setFilter('features')}>Features</button>
           </div>
+          {filter === 'all' && (
+            <ul className="feature-row">
+              {FEATURES.map((f) => (
+                <li key={f.id} className={features.includes(f.id) ? 'on' : ''}>
+                  <button onClick={() => toggleFeature(f.id)} title={`${f.title}: click to add or remove`} disabled={done}>
+                    <img src={f.img} alt={f.title} draggable="false" />
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
           {filter === 'features' ? (
             <ul className="grid">
               {FEATURES.map((f) => (
