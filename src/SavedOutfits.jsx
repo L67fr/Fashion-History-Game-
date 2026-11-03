@@ -95,6 +95,7 @@ export default function SavedOutfits({ saved, onLoad, onDelete }) {
       {saved.length === 0 ? (
         <p className="muted">Complete an outfit and save it to see it here.</p>
       ) : (
+        <p className="muted saved-hint">Click any outfit to put it back on your form and keep building.</p>
         <div className="saved-grid">
           {saved.map((item) => (
             <SavedCard key={item.id} item={item} onLoad={onLoad} onDelete={onDelete} />

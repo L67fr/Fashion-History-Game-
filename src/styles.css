@@ -140,3 +140,4 @@ footer { margin-top: 24px; font-size: .8rem; color: var(--muted); }
 .compare-col .timeline { margin-top: 12px; }
 .detail .timeline { margin-top: 12px; }
 .saved-del { z-index: 31; }
+.saved-hint { margin: 0 0 12px; font-size: .9rem; }
