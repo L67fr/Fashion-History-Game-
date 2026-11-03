@@ -101,7 +101,7 @@ footer { margin-top: 24px; font-size: .8rem; color: var(--muted); }
 .saved-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
 .saved-head h2 { margin: 0; font-size: 1.3rem; }
 .saved-head button { border: 1px solid var(--line); background: var(--panel); color: var(--ink); border-radius: 999px; padding: 6px 14px; font: inherit; }
-.saved-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+.saved-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 12px; }
 .saved-card { position: relative; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 8px; }
 .saved-open { display: flex; flex-direction: column; width: 100%; border: 0; background: none; padding: 0; cursor: pointer; text-align: left; font: inherit; color: var(--ink); }
 .saved-name { font-weight: bold; font-size: .9rem; margin-top: 6px; }
@@ -111,7 +111,7 @@ footer { margin-top: 24px; font-size: .8rem; color: var(--muted); }
 .mini-stage .figure { position: absolute; left: 0; right: 0; top: 20%; bottom: 0; }
 .mini-stage .worn { cursor: default; }
 
-.hover-card { position: absolute; left: 0; top: calc(100% + 8px); width: min(300px, 80vw); z-index: 30; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,.2); padding: 12px 14px; pointer-events: none; font-size: .85rem; }
+.hover-card { position: absolute; inset: 0; z-index: 30; overflow: auto; background: var(--panel); border-radius: 10px; padding: 10px 12px; pointer-events: none; font-size: .8rem; }
 .hover-card strong { display: block; margin-bottom: 6px; }
 .detail .span { margin-bottom: 8px; }
 .detail .span strong { font-size: 1.4rem; }
@@ -122,3 +122,7 @@ footer { margin-top: 24px; font-size: .8rem; color: var(--muted); }
 .compare-col { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 12px; }
 .compare-col h3 { margin: 0 0 8px; font-size: 1rem; text-transform: none; letter-spacing: normal; color: var(--ink); }
 .compare .mini-stage { max-width: 260px; margin: 0 auto 12px; }
+.hover-card .mix li { grid-template-columns: 1fr auto; }
+.hover-card .mix .bar { display: none; }
+.hover-card .timeline li { grid-template-columns: 1fr; gap: 0; margin-bottom: 4px; }
+.hover-card .timeline .when { font-size: .75rem; }
