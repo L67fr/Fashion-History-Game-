@@ -64,5 +64,6 @@ export const FEATURES = [
   { id: 'mustache', title: 'Mustache', x: 0, y: 11.8, w: 7, img: feat('mustache') },
   { id: 'lashes', title: 'Lashes', x: 0, y: 8, w: 11, img: feat('lashes') },
   { id: 'drop-earrings', title: 'Drop earrings', x: 0, y: 12.5, w: 14, img: feat('drop-earrings') },
+  { id: 'hoop-earrings', title: 'Hoop earrings', x: 0, y: 14.4, w: 14, img: feat('hoop-earrings') },
 ]
 export const FEAT_BY = Object.fromEntries(FEATURES.map((f) => [f.id, f]))
