@@ -160,3 +160,22 @@ footer { margin-top: 24px; font-size: .8rem; color: var(--muted); }
 .bg-row > button.on { box-shadow: 0 0 0 2px var(--accent); border-color: var(--accent); }
 .bg-custom { display: flex; align-items: center; gap: 6px; font-size: .85rem; color: var(--muted); margin-left: 4px; }
 .bg-custom input[type="color"] { width: 28px; height: 28px; border: 1px solid var(--line); border-radius: 6px; padding: 0; background: none; cursor: pointer; }
+
+/* page tabs and the Pieces page */
+.tabs { display: flex; gap: 8px; margin: 0 0 16px; }
+.tabs button { border: 1px solid var(--line); background: var(--panel); color: var(--ink); border-radius: 999px; padding: 6px 16px; font: inherit; cursor: pointer; }
+.tabs button.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+.pieces { max-width: 1200px; margin: 0 auto; }
+.pieces-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+.pieces-head h2 { margin: 0; font-size: 1.3rem; }
+.pieces-head input { border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; background: var(--panel); color: var(--ink); font: inherit; min-width: 260px; }
+.piece-cards { list-style: none; margin: 14px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+.piece-card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; }
+.piece-img { background: linear-gradient(var(--sky1), var(--sky2)); height: 220px; display: flex; align-items: center; justify-content: center; padding: 10px; }
+.piece-img img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.piece-body { padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.piece-body h3 { margin: 0; font-size: 1.05rem; }
+.piece-body dl { display: grid; grid-template-columns: 6rem 1fr; gap: 3px 8px; margin: 0; font-size: .85rem; }
+.piece-body dt { color: var(--muted); }
+.piece-body dd { margin: 0; }
+.piece-body a { color: var(--accent); font-size: .9rem; margin-top: auto; }

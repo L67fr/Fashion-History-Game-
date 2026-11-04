@@ -3,6 +3,7 @@ import { CLOTHES, SLOTS, CONFLICTS, FEATURES, FEAT_BY, FEATURE_CONFLICTS } from 
 import { GROUP_COUNTRIES } from './regions.js'
 import WorldMap from './WorldMap.jsx'
 import SavedOutfits from './SavedOutfits.jsx'
+import PiecesPage from './PiecesPage.jsx'
 import { BYID, MAX_SAVED, loadSaved, storeSaved, summarize } from './savedOutfits.js'
 import { BG_PRESETS, loadBg, storeBg } from './background.js'
 const CLICK_PX = 5 // pointer moves less than this = click, not drag
@@ -13,6 +14,7 @@ export default function App() {
   const [filter, setFilter] = useState('all')
   const [done, setDone] = useState(false) // outfit is complete: form locked, results shown
   const [drag, setDrag] = useState(null) // { id, from: 'closet' | 'form', x, y, moved }
+  const [page, setPage] = useState('dress') // 'dress' | 'pieces'
   const [features, setFeatures] = useState([]) // face features; several can be on at once
   const [saved, setSaved] = useState(loadSaved)
   const [bg, setBg] = useState(loadBg)
@@ -135,6 +137,13 @@ export default function App() {
         <p>Drag clothing onto the form to create an outfit from pieces in the MET Costume Collection. Press Complete when you're finished.</p>
       </header>
 
+      <nav className="tabs" aria-label="Pages">
+        <button className={page === 'dress' ? 'on' : ''} onClick={() => setPage('dress')}>Dress up</button>
+        <button className={page === 'pieces' ? 'on' : ''} onClick={() => setPage('pieces')}>Pieces</button>
+      </nav>
+
+      {page === 'pieces' ? <PiecesPage /> : (
+      <>
       <main>
         <section className="stage-wrap">
           <div className="bg-row" aria-label="Background colour">
@@ -298,6 +307,8 @@ export default function App() {
       )}
 
       <SavedOutfits saved={saved} onLoad={loadOutfit} onDelete={deleteOutfit} />
+      </>
+      )}
 
       <footer>
         All garments: The Metropolitan Museum of Art, The Costume Institute (Open Access). Original Scratch game by lazerm67.
