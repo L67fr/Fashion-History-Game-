@@ -185,3 +185,6 @@ footer { margin-top: 24px; font-size: .8rem; color: var(--muted); }
 .tabs button { font-size: 1.1rem; font-weight: bold; padding: 10px 26px; border-width: 2px; box-shadow: 0 2px 6px rgba(0,0,0,.08); }
 .tabs button:not(.on):hover { border-color: var(--accent); color: var(--accent); }
 .tabs button.on { box-shadow: 0 3px 10px rgba(140,47,57,.35); }
+
+/* pieces page cards keep a fixed grey background regardless of the figure background */
+.piece-img { background: #d9d9d9 !important; }
