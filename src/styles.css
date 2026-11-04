@@ -179,3 +179,9 @@ footer { margin-top: 24px; font-size: .8rem; color: var(--muted); }
 .piece-body dt { color: var(--muted); }
 .piece-body dd { margin: 0; }
 .piece-body a { color: var(--accent); font-size: .9rem; margin-top: auto; }
+
+/* larger, more prominent page tabs */
+.tabs { gap: 10px; margin: 4px 0 20px; }
+.tabs button { font-size: 1.1rem; font-weight: bold; padding: 10px 26px; border-width: 2px; box-shadow: 0 2px 6px rgba(0,0,0,.08); }
+.tabs button:not(.on):hover { border-color: var(--accent); color: var(--accent); }
+.tabs button.on { box-shadow: 0 3px 10px rgba(140,47,57,.35); }
