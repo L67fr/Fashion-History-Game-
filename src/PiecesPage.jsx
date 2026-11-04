@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { CLOTHES, SLOTS } from './clothes.js'
+import { CLOTHES } from './clothes.js'
 
 // Every piece as an information card, oldest origin first
 export default function PiecesPage() {
@@ -28,7 +28,6 @@ export default function PiecesPage() {
                 <dt>Date</dt><dd>{c.date}</dd>
                 <dt>Culture</dt><dd>{c.culture}</dd>
                 <dt>Medium</dt><dd>{c.medium}</dd>
-                <dt>Worn as</dt><dd>{SLOTS[c.slot]?.label || c.slot}</dd>
               </dl>
               <a href={c.url} target="_blank" rel="noreferrer">View at The Met →</a>
             </div>
