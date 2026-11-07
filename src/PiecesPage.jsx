@@ -1,8 +1,31 @@
 import { useState } from 'react'
 import { CLOTHES } from './clothes.js'
 import { FUN_FACTS } from './funFacts.js'
+import { GLOSSARY } from './glossary.js'
 
 // Every piece as an information card, oldest origin first
+// Splits a fact into text and clickable glossary terms
+function Fact({ text }) {
+  const [open, setOpen] = useState(null)
+  const terms = Object.keys(GLOSSARY)
+  const pattern = new RegExp(`\\b(${terms.join('|')})\\b`, 'gi')
+  const parts = text.split(pattern)
+  return (
+    <>
+      {parts.map((part, i) => {
+        const key = part.toLowerCase()
+        if (!GLOSSARY[key]) return <span key={i}>{part}</span>
+        return (
+          <span key={i} className="term-wrap">
+            <button type="button" className="term" onClick={(e) => { e.stopPropagation(); setOpen(open === i ? null : i) }}>{part}</button>
+            {open === i && <span className="term-def" role="note">{GLOSSARY[key]}</span>}
+          </span>
+        )
+      })}
+    </>
+  )
+}
+
 export default function PiecesPage() {
   const [query, setQuery] = useState('')
   const q = query.trim().toLowerCase()
@@ -23,7 +46,7 @@ export default function PiecesPage() {
             <div className="piece-img">
               <img src={c.img} alt={c.title} loading="lazy" draggable="false" />
             </div>
-            {FUN_FACTS[c.id] && <div className="fun-fact" role="note">{FUN_FACTS[c.id]}</div>}
+            {FUN_FACTS[c.id] && <div className="fun-fact" role="note"><Fact text={FUN_FACTS[c.id]} /></div>}
             <div className="piece-body">
               <h3>{c.title}</h3>
               <dl>
