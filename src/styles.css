@@ -209,3 +209,6 @@ footer { margin-top: 24px; font-size: .8rem; color: var(--muted); }
 .grid li .name { position: static; }
 .grid .name .term-wrap { position: static; }
 .grid li:has(.term-def) { z-index: 30; }
+
+/* the term button inside a card name must not inherit the 120px grid tile button height */
+.grid .name .term { height: auto; display: inline; padding: 0; line-height: inherit; font: inherit; }
