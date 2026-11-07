@@ -45,8 +45,8 @@ export default function PiecesPage() {
           <li key={c.id} className="piece-card">
             <div className="piece-img">
               <img src={c.img} alt={c.title} loading="lazy" draggable="false" />
+              {FUN_FACTS[c.id] && <div className="fun-fact" role="note"><Fact text={FUN_FACTS[c.id]} /></div>}
             </div>
-            {FUN_FACTS[c.id] && <div className="fun-fact" role="note"><Fact text={FUN_FACTS[c.id]} /></div>}
             <div className="piece-body">
               <h3>{c.title}</h3>
               <dl>
