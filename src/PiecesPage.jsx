@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { CLOTHES } from './clothes.js'
+import { FUN_FACTS } from './funFacts.js'
 
 // Every piece as an information card, oldest origin first
 export default function PiecesPage() {
@@ -22,6 +23,7 @@ export default function PiecesPage() {
             <div className="piece-img">
               <img src={c.img} alt={c.title} loading="lazy" draggable="false" />
             </div>
+            {FUN_FACTS[c.id] && <div className="fun-fact" role="note">{FUN_FACTS[c.id]}</div>}
             <div className="piece-body">
               <h3>{c.title}</h3>
               <dl>

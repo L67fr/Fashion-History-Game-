@@ -188,3 +188,8 @@ footer { margin-top: 24px; font-size: .8rem; color: var(--muted); }
 
 /* pieces page cards keep a fixed grey background regardless of the figure background */
 .piece-img { background: #d9d9d9 !important; }
+
+/* fun fact pop-up on piece cards */
+.piece-card { position: relative; }
+.fun-fact { position: absolute; left: 12px; right: 12px; top: 12px; background: var(--ink); color: #fff; border-radius: 10px; padding: 10px 12px; font-size: .85rem; line-height: 1.35; box-shadow: 0 6px 18px rgba(0,0,0,.3); opacity: 0; transform: translateY(-6px); transition: opacity .2s, transform .2s; pointer-events: none; z-index: 5; }
+.piece-card:hover .fun-fact { opacity: 1; transform: translateY(0); }
