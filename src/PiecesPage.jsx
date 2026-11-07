@@ -4,8 +4,8 @@ import { FUN_FACTS } from './funFacts.js'
 import { GLOSSARY } from './glossary.js'
 
 // Every piece as an information card, oldest origin first
-// Splits a fact into text and clickable glossary terms
-function Fact({ text }) {
+// Splits text into plain words and clickable glossary terms
+export function Fact({ text }) {
   const [open, setOpen] = useState(null)
   const terms = Object.keys(GLOSSARY)
   const pattern = new RegExp(`\\b(${terms.join('|')})\\b`, 'gi')

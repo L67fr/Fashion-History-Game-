@@ -3,7 +3,7 @@ import { CLOTHES, SLOTS, CONFLICTS, FEATURES, FEAT_BY, FEATURE_CONFLICTS } from 
 import { GROUP_COUNTRIES } from './regions.js'
 import WorldMap from './WorldMap.jsx'
 import SavedOutfits from './SavedOutfits.jsx'
-import PiecesPage from './PiecesPage.jsx'
+import PiecesPage, { Fact } from './PiecesPage.jsx'
 import { BYID, MAX_SAVED, loadSaved, storeSaved, summarize } from './savedOutfits.js'
 import { BG_PRESETS, loadBg, storeBg } from './background.js'
 const CLICK_PX = 5 // pointer moves less than this = click, not drag
@@ -294,7 +294,7 @@ export default function App() {
                 <button onPointerDown={(e) => startDrag(e, c.id, 'closet')} title="Drag onto the form, or click to wear" disabled={done}>
                   <img src={c.img} alt={c.title} draggable="false" loading="lazy" />
                 </button>
-                <span className="name">{c.title}</span>
+                <span className="name"><Fact text={c.title} /></span>
               </li>
             ))}
           </ul>

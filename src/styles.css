@@ -199,3 +199,5 @@ footer { margin-top: 24px; font-size: .8rem; color: var(--muted); }
 .term-def { display: block; margin-top: 6px; padding: 8px 10px; background: rgba(255,255,255,.12); border-radius: 8px; font-size: .8rem; }
 .fun-fact { pointer-events: none; }
 .piece-card:hover .fun-fact { pointer-events: auto; }
+.grid .name .term-wrap { position: relative; display: inline; }
+.grid .name .term-def { position: absolute; left: 0; top: 100%; z-index: 20; width: 220px; margin-top: 6px; background: var(--ink); color: #fff; font-weight: normal; }
