@@ -43,7 +43,14 @@ export default function PiecesPage() {
       <ul className="piece-cards">
         {pieces.map((c) => (
           <li key={c.id} className="piece-card">
-            <div className="piece-img">
+            <div
+              className="piece-img"
+              onMouseLeave={(e) => {
+                // send the fact back to its first line when the picture is left
+                const fact = e.currentTarget.querySelector('.fun-fact')
+                if (fact) fact.scrollTop = 0
+              }}
+            >
               <img src={c.img} alt={c.title} loading="lazy" draggable="false" />
               {FUN_FACTS[c.id] && <div className="fun-fact" role="note"><Fact text={FUN_FACTS[c.id]} /></div>}
             </div>
